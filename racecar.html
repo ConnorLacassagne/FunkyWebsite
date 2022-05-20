@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Mario Kart (Dollor Bin Edition)</title>
+    <style>
+      img{
+          position: absolute;
+          left: 0px;
+      }
+       
+      #mario{
+           bottom: 200px;
+           -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+       }
+
+      #luigi{
+        top: 100px;
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+      }
+
+      p{
+        text-align: center
+      }
+
+      #win{
+       height:200px;
+       width:400px;
+       position:absolute;
+       background-color: aqua;
+       text-align:center;
+       vertical-align: middle;
+       line-height: 200px;
+       display: none;
+      }
+
+      p2{
+        position: absolute;
+        top: 50px;
+        right: 60px;
+        font-size: 18px;
+      }
+    </style>
+
+</head>
+
+<body>
+    <p>Timer</p>
+  <p2><u>Controls:</u> Mario - F / Luigi - L</p2>
+  <img id="mario" src="Mario Cart.PNG"> 
+    <img id="luigi" src="Luigi cart.PNG">
+    <div id="win"><b>You Win!</b> Click the box to race again.</div>
+    <p id="timer"> Timer: 0</p>
+</body>
+
+</html>
+
+<script>
+    var mario = document.getElementById("mario")
+    var luigi = document.getElementById("luigi")
+    document.getElementById("win").addEventListener("click",restart)
+    var position = 0
+    var position2 = 0
+    var time = 0
+    
+    //nentindo please don't sue me
+
+    document.addEventListener("keydown", keydownHandler)
+    setInterval(timer,100)
+
+     function keydownHandler(e) {
+        if (e.key==="f"){
+         mario.style.left= position + "px"
+         position= position+50
+        }
+
+        if (e.key==="l"){
+         luigi.style.left= position2 + "px"
+         position2= position2+40
+        }
+        
+        if(position>=1400){
+          document.getElementById("win").style.display="block"
+        }
+       
+        if(position2>=1400){
+          document.getElementById("win").style.display="block"
+        }
+      }
+      
+  
+      function timer(){
+      time= time+1 
+      document.getElementById("timer").innerHTML = time;
+     
+     
+    }
+     
+    function restart(){
+      location.reload()
+    }
+ </script>

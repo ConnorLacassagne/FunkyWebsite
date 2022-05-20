@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<title>Bee Clicker</title>
+<head>
+    <style>
+        p {
+            color: black;
+            font-weight: bold;
+            background-color: darksalmon;
+            width: fit-content;
+        }
+
+        p2 {
+            margin-right: 30px;
+            background-color: grey;
+        }
+
+        body {
+            color: black;
+            background: url("https://media.architecturaldigest.com/photos/56a16950883e5aaf0648d52e/master/w_2100,h_1383,c_limit/fields-of-flowers-05.JPG")
+        }
+
+        
+
+        div {
+            background-color: darksalmon;
+            width: fit-content;
+            margin-right: 85px;
+            display: contents;
+
+        }
+        #beeBox {
+            width: 100px;
+            height: 150px;
+        }
+
+        #beeKeeper {
+            width: 150px;
+        }
+
+        #jar {
+            width: 100px;
+
+        }
+
+        #factory {
+            width: 14%;
+        }
+
+        #planet {
+            width: 10.4%;
+        }
+
+        #galaxy {
+            width: 37%;
+        }
+
+        .button {
+
+            margin-right: 1%;
+            border-style: solid;
+            border-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="hive" src="Bee_Nest_(S)_JE1.png">
+    <p id="score">Honey = 0</p>
+    <img class="button" id="jar" src="istockphoto-950996184-170667a.jpg">
+    <img class="button" id="beeBox" src="9Tew.jpg">
+    <img class="button" id="beeKeeper"
+        src="100517286-beekeeper-in-a-protective-suit-vector-illustration-on-a-white-background.jpg">
+    <img class="button" id="factory" src="istockphoto-1223792696-612x612.jpg">
+    <img class="button" id="planet" src="natielle-jardim-honey-planet-1.jpg">
+    <img class="button" id="galaxy" src="7de40b59213223.5a19ce7bcf45a.jpg">
+    <br><br>
+    <p>Jar - 20 Honey / 1 Honey per 2 seconds</p>
+    <p>Bee Box - 100 Honey / 1 Honey per 1.5 seconds</p>
+    <p>Bee Keeper - 500 Honey / 1 Honey per 0.8 seconds</p>
+    <p>Honey Factory - 1000 Honey / 1 Honey per 0.5 seconds</p>
+    <p>Bee Planet - 5000 Honey / 1 Honey per 0.1 seconds</p>
+    <p>Bee Galaxy - 10000 Honey / 1 Honey per 0.05 seconds</p>
+
+    <br>
+    <p2 id="upgradeAmountC">Amount of Jars = 0</p2>
+    <p2 id="upgradeAmountA">Amount of Bee Boxes = 0</p2>
+    <p2 id="upgradeAmountB">Amount of Beekeepers = 0</p2>
+    <p2 id="upgradeAmountD">Amount of Honey Factories = 0</p2>
+    <p2 id="upgradeAmountE">Amount of Bee Planets = 0</p2>
+    <p2 id="upgradeAmountF">Amount of Bee Galaxies = 0</p2>
+
+</body>
+
+</html>
+<script>
+    var score = 0
+    var upgradeAmountA = 0
+    var upgradeAmountB = 0
+    var upgradeAmountC = 0
+    var upgradeAmountD = 0
+    var upgradeAmountE = 0
+    var upgradeAmountF = 0
+
+    document.getElementById("hive").addEventListener("click", imageClick)
+    document.getElementById("beeBox").addEventListener("click", beeBox)
+    document.getElementById("beeKeeper").addEventListener("click", beeKeeper)
+    document.getElementById("jar").addEventListener("click", jar)
+    document.getElementById("factory").addEventListener("click", factory)
+    document.getElementById("planet").addEventListener("click", planet)
+    document.getElementById("galaxy").addEventListener("click", galaxy)
+
+
+    function imageClick() {
+        score = score + 1
+        document.getElementById("score").innerText = "Honey = " + score
+    }
+    function beeBox() {
+        if (score >= 100) {
+            setInterval(multiplier, 1500)
+            score = score - 100
+            upgradeAmountA = upgradeAmountA + 1
+            document.getElementById("upgradeAmountA").innerText = "Amount of Bee Boxes = " + upgradeAmountA
+        }
+    }
+    function multiplier() {
+        score = score + 1
+        document.getElementById("score").innerText = "Honey = " + score
+    }
+    function beeKeeper() {
+        if (score >= 500) {
+            setInterval(multiplier, 800)
+            score = score - 500
+            upgradeAmountB = upgradeAmountB + 1
+            document.getElementById("upgradeAmountB").innerText = "Amount of Beekeepers = " + upgradeAmountB
+        }
+    }
+    function jar() {
+        if (score >= 20) {
+            setInterval(multiplier, 2000)
+            score = score - 20
+            upgradeAmountC = upgradeAmountC + 1
+            document.getElementById("upgradeAmountC").innerText = "Amount of Jars = " + upgradeAmountC
+        }
+    }
+    function factory() {
+        if (score >= 1000) {
+            setInterval(multiplier, 500)
+            score = score - 1000
+            upgradeAmountD = upgradeAmountD + 1
+            document.getElementById("upgradeAmountD").innerText = "Amount of Honey Factories = " + upgradeAmountD
+        }
+    }
+    function planet() {
+        if (score >= 5000) {
+            setInterval(multiplier, 100)
+            score = score - 5000
+            upgradeAmountE = upgradeAmountE + 1
+            document.getElementById("upgradeAmountE").innerText = "Amount of Bee Planets = " + upgradeAmountE
+        }
+    }
+    function galaxy() {
+        if (score >= 10000) {
+            setInterval(multiplier, 50)
+            score = score - 10000
+            upgradeAmountF = upgradeAmountF + 1
+            document.getElementById("upgradeAmountF").innerText = "Amount of Bee Galaxies = " + upgradeAmountF
+        }
+    }
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<title>Random Bouncing Box</title>
+<head>
+    <style>
+        div {
+            height: 50px;
+            width: 50px;
+            background-color: red;
+            position: absolute;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+</body>
+
+</html>
+<script>
+    var box = document.getElementById("box")
+    box.addEventListener("click", boxClick)
+    var x = 10 + 10
+    var y = 10 - 5
+    var speedx = +5
+    var speedy = +5
+    setInterval(update, 50)
+    function update() {
+        box.style.left = x + "px"
+        box.style.top = y + "px"
+        x = x + speedx
+        y = y + speedy
+        if (x > 495) {
+            speedx = speedx * -1
+        }
+        if (x < 0) {
+            speedx = speedx * -1
+        }
+        if (y > 300) {
+            speedy = speedy * -1
+        }
+        if (y < 0) {
+            speedy = speedy * -1
+        }
+    }
+
+    function boxClick() {
+        if (speedx > 0) {
+            speedx = speedx + 5
+        }
+        if (speedx < 0) {
+            speedx = speedx - 5
+        } if (speedy > 0) {
+            speedy = speedy + 5
+        }
+        if (speedy < 0) {
+            speedy = speedy - 5
+        }
+    }
+</script>

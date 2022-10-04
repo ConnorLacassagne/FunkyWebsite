@@ -4,11 +4,12 @@
 <head>
     <title>Scurvy Clicker</title>
     <style>
-        body{
+        body {
             background: url(https://res.cloudinary.com/dtpgi0zck/image/upload/s--SsFGdDoP--/c_fill,h_580,w_860/v1/EducationHub/photos/ocean-waves.jpg);
             background-size: cover;
         }
-        #cove{
+
+        #cove {
             width: 605px;
             margin-left: 28%;
             margin-top: 15%;
@@ -18,11 +19,29 @@
 </head>
 
 <body>
+    <p id="points">0 scurvy</p>
     <img id=cove src="ThePiratesCove_screenshot_0.jpg"></img>
+    <img id="duck" src="pirate duck.PNG"></img>
+    <img id="blue" src="useless duck.PNG"></img>
 </body>
 
 </html>
 <script>
 
+    var score = 0
+    var scorePerClick = 1
+    document.getElementById("cove").addEventListener("click", clickHandler)
+    document.getElementById("duck").addEventListener("click", upgrade)
+    document.getElementById("blue").addEventListener("click", autoClicker)
+    function clickHandler() {
+        document.getElementById("points").innerText = score + " scurvy"
+        score = score + scorePerClick
+    }
+    function upgrade() {
+        scorePerClick = scorePerClick * 2
 
+    }
+    function autoClicker() {
+        setInterval(clickHandler, .5000)
+    }
 </script>

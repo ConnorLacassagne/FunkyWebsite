@@ -30,6 +30,7 @@
 
     var score = 0
     var scorePerClick = 1
+    var price1 = 10
     document.getElementById("cove").addEventListener("click", clickHandler)
     document.getElementById("duck").addEventListener("click", upgrade)
     document.getElementById("blue").addEventListener("click", autoClicker)
@@ -39,9 +40,15 @@
     }
     function upgrade() {
         scorePerClick = scorePerClick * 2
-
+        if(score>=10){
+      score=score-10
+      scorePerClick=2
+      }
     }
+
+    
     function autoClicker() {
         setInterval(clickHandler, .5000)
     }
+    
 </script>

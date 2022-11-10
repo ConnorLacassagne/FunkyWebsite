@@ -8,7 +8,7 @@
       width: 50px;
       height: 50px;
       background-color: rgb(0, 183, 255);
-      position:absolute;
+      position: absolute;
     }
   </style>
 
@@ -21,22 +21,34 @@
 </html>
 <script>
   var x = 10
-  var speed = 10
-  setInterval(moveBox,50)
-  
+  var y = 10
+  var speedx = 10
+  var speedy = 20
+
+  setInterval(moveBox, 50)
+  document.getElementById("box").style.left = y + "px"
+  document.getElementById("box").style.top = x + "px"
  
-  
+
+
 
   function moveBox() {
-   x=x+speed
-   document.getElementById("box").style.left = x + "px"
-   if(x===1000){
-    speed=-10
-   }
-   if(x===10){
-    speed=speed*-1
-   }
-  
+    x = x + speedx
+    y = y + speedy
+    document.getElementById("box").style.left = y + "px"
+    document.getElementById("box").style.top = x + "px"
+
+    if (x >= 700) {
+      speedx = -10
+    }
+    if (x <= 10) {
+      speedx = speedx * -1
+    }
+    if (y >= 900) {
+      speedy = -10
+    }
+    if (y <= 10) {
+      speedy = speedy * -1
+    }
   }
- 
 </script>

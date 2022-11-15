@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Doodle Kart</title>
+    <style>
+        img {
+            position: absolute;
+        }
+
+        #car2 {
+            top: 150px;
+
+        }
+
+        #car1 {
+
+        }
+    </style>
+</head>
+
+<body>
+ <img id="car1" src="car1.PNG"> 
+ <img id="car2" src="car2.PNG"> 
+</body>
+
+</html>
+<script>
+    var car1 = 5
+    var car2 = 5
+    document.addEventListener("keydown", keydownHandler)
+
+
+    function keydownHandler() {
+
+        document.getElementById("car1").style.left = car1 + "px"
+        document.getElementById("car2").style.left = car2 + "px"
+        car1 = car1 * 2
+    }
+
+
+
+
+
+
+</script>

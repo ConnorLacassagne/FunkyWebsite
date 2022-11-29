@@ -12,15 +12,13 @@
 
         }
 
-        #car1 {
-
-        }
+        
     </style>
 </head>
 
 <body>
- <img id="car1" src="car1.PNG"> 
- <img id="car2" src="car2.PNG"> 
+    <img id="car1" src="car1.PNG">
+    <img id="car2" src="car2.PNG">
 </body>
 
 </html>
@@ -30,11 +28,18 @@
     document.addEventListener("keydown", keydownHandler)
 
 
-    function keydownHandler() {
-
+    function keydownHandler(e) {
+        console.log(e.key)
         document.getElementById("car1").style.left = car1 + "px"
         document.getElementById("car2").style.left = car2 + "px"
-        car1 = car1 * 2
+
+        if (e.key === "j") {
+            car1 = car1 + 30
+        }
+        if (e.key === "s") {
+            car2 = car2 + 30
+        }
+
     }
 
 

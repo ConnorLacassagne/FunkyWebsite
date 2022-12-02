@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cat Joins Gang</title>
+  <style>
+    #bird {
+      width: 100px;
+
+      animation-name: big;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+
+    }
+
+    #danceCat {
+      position: absolute;
+      top: 185px;
+      left: 400px;
+      bottom: 200px;
+
+      animation-name: walk;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes walk {
+      0% {
+        width: 600px;
+      }
+
+      100% {
+        width: 200px;
+
+      }
+    }
+
+    @keyframes big {
+      0% {
+        width: 100px;
+      }
+
+      50% {
+        width: 300px;
+        transform: rotate3d(1, 2, -1, 192deg);
+
+
+      }
+
+      100% {
+        width: 600px;
+
+      }
+
+    }
+
+    #deadGuy {
+      position: absolute;
+      top: 360px;
+      right: 16px;
+      width: 500px;
+      height: 425px;
+    }
+
+    body {
+      background: url(8c2.jpg);
+      background-size: cover;
+    }
+
+    #text{
+      color: rgb(255, 255, 255);
+      font-size: 20px;
+      top: 360px;
+      right: 160px;
+    }
+  </style>
+</head>
+
+<body>
+  <img id=bird src="vulture1.PNG"></img>
+  <img id=deadGuy src="dead guy.PNG"></img>
+  <img id=danceCat src="https://media.tenor.com/L1M2UZj5XykAAAAd/meow-skulls-fortnite.gif"></img>
+  <div id=text>Welcome to the Gang strange cat.</div>
+</body>
+
+</html>

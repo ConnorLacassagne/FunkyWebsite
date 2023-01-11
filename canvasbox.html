@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Canvas Box</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600"></canvas>
+</body>
+</html>
+
+<script>
+var x =  10
+var speed = 10
+var canvas = document.getElementById("canvas")
+var ctx = canvas.getContext("2d")
+setInterval(main,30)
+
+function main(){
+ // x y w h
+ ctx.clearRect(0,0,2000,2000)
+ ctx.fillRect(x,100,100,100,100)
+ x=x+speed
+
+ if(x===800){
+   speed=speed*-1
+ }
+ 
+}
+
+
+
+</script>

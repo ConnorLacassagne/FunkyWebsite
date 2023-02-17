@@ -8,14 +8,19 @@
 </head>
 <body>
 <canvas id= "canvas" width="800" height="800"></canvas>
+<img src="Spr_pepperman_intro3loop_0.webp"></img>
 </body>
 </html>
 <script>
 
 var y= 10
+var y2= 10
 var speedy = 5
+var speedy2=10
 var x= 10
+var x2= 200
 var speedx= 5
+var speedx2= 10
 
 var canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d")
@@ -25,22 +30,40 @@ function draw(){
   // x y w h
   ctx.clearRect(0,0,800,800)
   ctx.fillRect(x,y,100,100)
-  y=y+speedy
+  ctx.fillRect(x2,y2,100,100)
   x=x+speedx
-  if(y<=350){
-    speedy=speedy + 0.5
-
-  }
-  if(y>=350){
-    speedy=speedy - 0.65
-
-  }
+  y=y+speedy
+  x2=x2+speedx2
+  y2=y2+speedy2
   if(x<350){
     speedx=speedx + 0.5
 
   }
   if(x>=350){
     speedx=speedx -0.65
+  }
+  if(y<350){
+    speedy=speedy + 0.5
+
+  }
+  if(y>=350){
+    speedy=speedy -0.65
+
+  }
+  //////////////////////////
+  if(x2<350){
+    speedx2=speedx2 + 0.5
+  }
+  if(x2>=350){
+    speedx2=speedx2 -0.65
+  }
+  if(y2<350){
+    speedy2=speedy2 +0.5
+  
+  }
+  if(y2>=350){
+    speedy2=speedy2 -0.65
+
   }
 }
 </script>

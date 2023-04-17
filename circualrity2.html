@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Fast Flies</title>
+
+
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <img src="Spr_pepperman_intro3loop_0.webp"></img>
+</body>
+
+</html>
+<script>
+
+
+  var radius = 5
+  var y = []
+  var speedy = []
+  var x = []
+  var speedx = []
+
+
+
+
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    setInterval(draw, 16)
+    function draw() {
+
+    // x y w h
+    ctx.clearRect(0, 0, 800, 800)
+    for (var i = 0; i < 20; i = i + 1) {
+      y[i] = Math.floor(Math.random() * 700)
+      x[i] = Math.floor(Math.random() * 700)
+      speedy[i] = Math.random()
+      speedx[i] = Math.random()
+      x.push(Math.random() * 100)
+      
+
+
+      ctx.beginPath()
+      ctx.arc(x[i],y[i],radius,0,Math.PI*2)
+      ctx.fill()
+
+      x[i] = x[i] + speedx[i]
+      y[i] = y[i] + speedy[i]
+      if (x[i] >= 700) {
+        speedx[i] = -1 * speedx[i]
+
+      }
+      if (x[i] <= 10) {
+        speedx[i] = -1 * speedx[i]
+      }
+      if (y[i] >= 700) {
+        speedy[i] = -1 * speedy[i]
+
+      }
+      if (y[i] <= 10) {
+        speedy[i] = -1 * speedy[i]
+
+      }
+    }
+
+    //////////////////////////
+  }
+</script>

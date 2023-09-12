@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Silly Snake</title>
+
+</head>
+
+<body>
+    <canvas id="canvas" width="1000" height="800"></canvas>
+</body>
+
+</html>
+<script>
+   
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    ctx.fillStyle="black"
+    
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 10; j++) {
+            ctx.fillRect(i*56, j*56, 50, 50)           
+
+        }
+       
+    }
+    ctx.fillStyle="cyan"
+    ctx.fillRect(250,150,50,50)
+
+</script>

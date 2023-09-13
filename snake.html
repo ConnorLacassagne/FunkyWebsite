@@ -2,7 +2,7 @@
 
 <head>
 
-    <title>Silly Snake</title>
+    <title>Cyan Snake</title>
 
 </head>
 
@@ -12,19 +12,36 @@
 
 </html>
 <script>
-   
+    document.addEventListener("keydown", keydownHandler)
     var canvas = document.getElementById("canvas")
     var ctx = canvas.getContext("2d")
-    ctx.fillStyle="black"
-    
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
-            ctx.fillRect(i*56, j*56, 50, 50)           
+
+
+    setInterval(main, 30)
+    function keydownHandler(e) {
+        if (e.key === "w") {
+            wpressed = true
+        }
+
+    }
+
+    function main() {
+
+        for (i = 0; i < 10; i++) {
+            for (j = 0; j < 10; j++) {
+                ctx.fillStyle = "black"
+                ctx.fillRect(i * 55, j * 55, 50, 50)
+
+            }
 
         }
-       
-    }
-    ctx.fillStyle="cyan"
-    ctx.fillRect(250,150,50,50)
+        ctx.fillStyle = "cyan"
+        ctx.fillRect(55 * 5, 55 * 5, 50, 50)
 
+        if(wpressed === true){
+        
+
+        }
+
+    }
 </script>

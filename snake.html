@@ -15,14 +15,28 @@
     document.addEventListener("keydown", keydownHandler)
     var canvas = document.getElementById("canvas")
     var ctx = canvas.getContext("2d")
-
-
-    setInterval(main, 30)
+    var y = 55 * 5
+    var x = 55 * 5
+    
+    setInterval(main, 200)
     function keydownHandler(e) {
+        wpressed = false
+        spressed = false
+        apressed = false
+        dpressed = false
+        
         if (e.key === "w") {
             wpressed = true
         }
-
+        if (e.key === "s") {
+            spressed = true
+        }
+        if (e.key === "a") {
+            apressed = true
+        }
+        if (e.key === "d") {
+            dpressed = true
+        }
     }
 
     function main() {
@@ -33,15 +47,24 @@
                 ctx.fillRect(i * 55, j * 55, 50, 50)
 
             }
-
+ 
         }
         ctx.fillStyle = "cyan"
-        ctx.fillRect(55 * 5, 55 * 5, 50, 50)
+        ctx.fillRect(x, y, 50, 50)
 
-        if(wpressed === true){
-        
-
+        if (wpressed === true) {
+            y = y - 55
+            
         }
-
+        if (spressed === true) {
+            y = y + 55
+        }
+        if (apressed === true) {
+            x = x - 55
+            
+        }
+        if (dpressed === true) {
+            x = x + 55
+        }
     }
 </script>

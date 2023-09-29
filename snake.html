@@ -18,8 +18,8 @@
     var y = 55 * 5
     var x = 55 * 5
     var alive = true
-    var tailx = []
-    var taily = []
+    var tailx = [0,1,2,34,55]
+    var taily = [5,6,77,8,2]
     var applex = 1
     var appley = 1
     var onApple = false
@@ -114,7 +114,15 @@
             }
         }
 
+        for(i = 0; i<tailx.length; i++){
+            if(tailx === x){
+               if(taily === y){
+                alive = false
+               }
+             
+            }
 
+        }
 
 
 

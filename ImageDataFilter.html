@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>image filtering</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="duck" src="duck.jpg">
+    <canvas id="canvas" width="300" height="300"></canvas>
+</body>
+
+</html>
+
+<script>
+
+    window.addEventListener("load", main);
+
+
+
+    function main() {
+        var canvas = document.getElementById("canvas")
+        var ctx = canvas.getContext("2d")
+
+        var duck = document.getElementById("duck")
+        ctx.drawImage(duck, 0, 0, 300, 300)
+
+        var imageData = ctx.getImageData(0, 0, 300, 300)
+
+        console.log(imageData.data)
+
+        for (var i = 0; i < imageData.data.length; i++) {
+            imageData.data[i * 4] = 255 - imageData.data[i * 4]
+            imageData.data[i * 4 + 1] = 255 - imageData.data[i * 4 + 1]
+            imageData.data[i * 4 + 2] = 255 - imageData.data[i * 4 + 2]
+        }
+        console.log(imageData.data)
+        ctx.putImageData(imageData, 0, 0)
+    }
+
+</script>

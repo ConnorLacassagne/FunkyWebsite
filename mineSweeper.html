@@ -18,21 +18,27 @@
     var ctx = canvas.getContext("2d")
     var y = 55 * 5
     var x = 55 * 5
+    
     var covered = [[true, true, true, true, true],
-    [true, false, true, true, true],
-    [true, false, false, true, true],
+    [true, true, true, true, true],
+    [true, true, true, true, true],
     [true, true, true, true, true],
     [true, true, true, true, true]]
     
-    var isCovered = true
-    setInterval(main, 150)
+    var bombs = [[false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false]]
+    //var isCovered = true
+    // setInterval(main, 150)
 
+    document.addEventListener("click", click)
 
-
-    function main() {
+    function drawGrid() {
         ctx.clearRect(0, 0, 5000, 5000)
 
-        
+
 
         for (i = 0; i < covered.length; i++) {
             for (j = 0; j < covered[i].length; j++) {
@@ -49,9 +55,22 @@
         //kids eat free on Tusedays!
 
 
+    }
 
+    drawGrid()
+    function click(e) {
 
-
+        var mousex = e.offsetX
+        var mousey = e.offsetY
+        
+        mousex = (mousex - (mousex % 55)) / 55
+        mousey = (mousey - (mousey % 55)) / 55
+        ctx.fillStyle = "cyan"
+        covered [mousey] [mousex]  = false
+        drawGrid()
+        
 
     }
+
+        
 </script>

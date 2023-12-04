@@ -23,10 +23,42 @@
     var x = 0
     var y = 0
     var notSorted = true
-    sortNumbers()
-    //sortedList = quickSort(listToSort)
+    //sortNumbers()
+    sortedList = quickSort(listToSort)
+    showCurrentSort(sortedList, 0)
 
     function quickSort(list) {
+        var left = []
+        var right = []
+        var pivot = list[0]
+        showCurrentSort(list, 0)
+
+
+        for (var i = 0; i < list.length; i++) {
+            if (pivot > list[i]) {
+                left.push(list[i])
+            }
+            if (pivot < list[i]) {
+                right.push(list[i])
+            }
+
+        }
+
+        //help on this pls!!!
+        if (list.length === 0) {
+            return list
+        }
+
+
+        left = quickSort(left)
+        var answer = left
+
+        right = quickSort(right)
+        answer.push(pivot)
+        answer = answer.concat(right)
+        showCurrentSort(answer)
+        return answer
+
 
     }
 

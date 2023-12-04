@@ -16,24 +16,32 @@
 
     var canvas = document.getElementById("canvas")
     var ctx = canvas.getContext("2d")
-    var y = 55 * 5
-    var x = 55 * 5
     
-    var covered = [[true, true, true, true, true],
-    [true, true, true, true, true],
-    [true, true, true, true, true],
-    [true, true, true, true, true],
-    [true, true, true, true, true]]
-    
-    var bombs = [[false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false]]
-    //var isCovered = true
+
+    // var covered = [[true, true, true, true, true],
+    // [true, true, true, true, true],
+    // [true, true, true, true, true],
+    // [true, true, true, true, true],
+    // [true, true, true, true, true]]
+
+    var bombs = []
+    var covered = []
+    for (i = 0; i < 5; i++) {
+        covered.push([])
+        bombs.push([])
+        for (j = 0; j < 5; j++) {
+            covered[i].push(false)
+            bombs[i].push(false)
+        }
+    }
+
     // setInterval(main, 150)
 
     document.addEventListener("click", click)
+
+    for (var i = 0; i < 10; i++) {
+        bombs[Math.floor(Math.random() * 5)][Math.floor(Math.random() * 5)] = true
+    }
 
     function drawGrid() {
         ctx.clearRect(0, 0, 5000, 5000)
@@ -43,10 +51,16 @@
         for (i = 0; i < covered.length; i++) {
             for (j = 0; j < covered[i].length; j++) {
                 if (covered[i][j] === false) {
-                    ctx.fillStyle = "brown"
-                } else {
 
+                    if (bombs[i][j] === true) {
+                        ctx.fillStyle = "cyan"
+
+                    } else {
+                        ctx.fillStyle = "brown"
+                    }
+                } else {
                     ctx.fillStyle = "black"
+                    ctx.fillText("number", 10, 10)
                 }
                 ctx.fillRect(j * 55, i * 55, 50, 50)
             }
@@ -56,21 +70,58 @@
 
 
     }
+    //x,y-1
+    function bombCheck(cellx, celly) {
+
+        if (bombs[celly - 1][cellx - 1] === true) { //top left
+            console.log("bomb")
+        }
+        if (bombs[celly][cellx - 1] === true) { //middle left
+            console.log("bomb")
+        }
+        if (bombs[celly + 1][cellx - 1] === true) { //bottom left
+            console.log("bomb")
+        }
+        if (bombs[celly - 1][cellx] === true) { //top middle
+            console.log("bomb")
+        }
+        if (bombs[celly][cellx] === true) { //middle middle
+            console.log("bomb")
+        }
+        if (bombs[celly + 1][cellx] === true) { //bottom middle
+            console.log("bomb")
+        }
+        if (bombs[celly - 1][cellx + 1] === true) { //top right
+            console.log("bomb")
+        }
+        if (bombs[celly][cellx + 1] === true) { //middle right
+            console.log("bomb")
+        } 
+        if (bombs[celly + 1][cellx + 1] === true) { //bottom right
+            console.log("bomb")
+        }
+        
+        ctx.font = "30px Arial";
+        ctx.fillText(":O", cellx, celly);
+        
+    }
+
+       
 
     drawGrid()
     function click(e) {
 
         var mousex = e.offsetX
         var mousey = e.offsetY
-        
+
         mousex = (mousex - (mousex % 55)) / 55
         mousey = (mousey - (mousey % 55)) / 55
         ctx.fillStyle = "cyan"
-        covered [mousey] [mousex]  = false
+        covered[mousey][mousex] = false
         drawGrid()
-        
+        bombCheck(mousex, mousey)
 
     }
 
-        
+
 </script>
